@@ -1,0 +1,47 @@
+<h4><span class="badge badge-light ">{{customer.id}}</span> -> {{customer.firstname}}</h4>
+<div [hidden]="submitted">
+    <form #detailCustomerForm="ngForm">
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" required
+        [(ngModel)]="customer.firstname" name="firstname" #firstname="ngModel">
+        <div [hidden]="firstname.valid || firstname.pristine"
+             class="alert alert-danger">
+            First Name is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" required
+        [(ngModel)]="customer.lastname" name="lastname" #lastname="ngModel">
+        <div [hidden]="lastname.valid || lastname.pristine"
+             class="alert alert-danger">
+            Last Name is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" required
+        [(ngModel)]="customer.age" name="age" #age="ngModel">
+        <div [hidden]="age.valid || age.pristine"
+             class="alert alert-danger">
+            Age is required
+        </div>
+      </div>
+
+      <div class="btn-group btn-group-sm">
+        <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+        <button type="button" class="btn btn-dark" (click)="update()" [disabled]="!detailCustomerForm.form.valid">Update</button>
+        <button type="button" class="btn btn-dark" (click)="delete()">Delete</button>
+	    </div>
+    </form>
+</div>
+ 
+<div [hidden]="!submitted">
+    <p>{{message}}</p>
+    <div class="btn-group btn-group-sm">
+      <button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    </div>
+</div>

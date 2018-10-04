@@ -1,0 +1,52 @@
+<h3>Add Customer</h3>
+<div [hidden]="submitted">
+    <form #addCustomerForm="ngForm">
+
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input type="text" class="form-control" id="firstname" placeholder="Give Customer's FirstName" 
+        required
+        [(ngModel)]="customer.firstname" name="firstname" #firstname="ngModel">
+        <div [hidden]="firstname.valid || firstname.pristine"
+             class="alert alert-danger">
+            First Name is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input type="text" class="form-control" id="lastname" placeholder="Give Customer's LastName"
+        required
+        [(ngModel)]="customer.lastname" name="lastname" #lastname="ngModel">
+        <div [hidden]="lastname.valid || lastname.pristine"
+             class="alert alert-danger">
+            Last Name is required
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" id="age" 
+        placeholder="Give Customer's Age"
+        required
+        [(ngModel)]="customer.age" name="age" #age="ngModel">
+        <div [hidden]="age.valid || age.pristine"
+             class="alert alert-danger">
+            Age is required
+        </div>
+      </div>
+      
+      <div class="btn-group btn-group-sm">
+      	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+      	<button type="button" class="btn btn-dark" (click)="addCustomer()" [disabled]="!addCustomerForm.form.valid">Add</button>
+      </div>
+    </form>
+</div>
+
+<div [hidden]="!submitted">
+  <p>Submitted Successfully! -> <span class="badge badge-light">{{customer.firstname}}  {{customer.lastname}}</span></p>
+	<div class="btn-group btn-group-sm">
+    	<button type="button" class="btn btn-dark" (click)="goBack()">Back</button>
+    	<button type="button" class="btn btn-dark" (click)="newCustomer(); addCustomerForm.reset()">Continue</button>
+    </div>
+</div>
