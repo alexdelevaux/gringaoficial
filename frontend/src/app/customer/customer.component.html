@@ -2,3 +2,11 @@
 <div *ngFor="let cust of customers">
   <a [routerLink]="['/customers', cust.id]" style="color:black"><span class="badge badge-dark">{{cust.id}}</span> -> {{ cust.firstname }}</a>
 </div>
+
+<h3>Severity Buttons</h3>
+<button pButton type="button" label="Primary"></button>
+<button pButton type="button" label="Secondary" class="ui-button-secondary"></button>
+<button pButton type="button" label="Success" class="ui-button-success"></button>
+<button pButton type="button" label="Info" class="ui-button-info"></button>
+<button pButton type="button" label="Warning" class="ui-button-warning"></button>
+<button pButton type="button" label="Danger" class="ui-button-danger"></button>
