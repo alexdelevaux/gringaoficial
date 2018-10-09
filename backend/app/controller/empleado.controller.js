@@ -11,7 +11,7 @@ exports.create = (req, res) => {
 	});
 };
  
-// Fetch all Customers
+
 exports.findAll = (req, res) => {
 	Empleado.findAll().then(empleados => {
 	  // Send all empleados to Client

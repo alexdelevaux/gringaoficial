@@ -19,7 +19,7 @@ db.sequelize.sync({force: true}).then(() => {
   initial();
 });
 
-require('./app/route/customer.route.js')(app);
+require('./app/route/empleado.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -32,54 +32,33 @@ var server = app.listen(8080, function () {
 
 function initial(){
 
-  let customers = [
+  let empleados = [
     {
-      id: 1,
-      firstname: "Joe",
-      lastname: "Thomas",
-      age: 36
+      nombre: "Magdalena",
+      apellido: "Paez",
+      usuario: "magapaez",
+      contrasena: "pswmaga1",
+      rol: "v",
+      estado: "a",
+      observaciones: "llega a las 9 los miercoles",
+
     },
     {
-      id: 2,
-      firstname: "Peter",
-      lastname: "Smith",
-      age: 18
-    },
-    {
-      id: 3,
-      firstname: "Lauren",
-      lastname: "Taylor",
-      age: 31
-    },
-    {
-      id: 4,
-      firstname: "Mary",
-      lastname: "Taylor",
-      age: 24
-    },
-    {
-      id: 5,
-      firstname: "David",
-      lastname: "Moore",
-      age: 25
-    },
-    {
-      id: 6,
-      firstname: "Holly",
-      lastname: "Davies",
-      age: 27
-    },
-    {
-      id: 7,
-      firstname: "Michael",
-      lastname: "Brown",
-      age: 45
+      nombre: "florencia",
+      apellido: "gonzalez",
+      usuario: "florgon",
+      contrasena: "pswflorgon1",
+      rol: "a",
+      estado: "a",
+      observaciones: "tiene llave",
+
     }
+   
   ]
 
   // Init data -> save to MySQL
-  const Customer = db.customers;
-  for (let i = 0; i < customers.length; i++) { 
-    Customer.create(customers[i]);  
+  const Empleado = db.empleados;
+  for (let i = 0; i < empleados.length; i++) { 
+    Empleado.create(empleados[i]);  
   }
 }
