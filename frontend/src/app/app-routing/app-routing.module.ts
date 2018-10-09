@@ -3,25 +3,29 @@ import { RouterModule, Routes } from '@angular/router';
 import { CustomerComponent } from '../customer/customer.component';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
+import { EmpleadosComponent } from '../components/empleados/empleados.component';
 
 const routes: Routes = [
-   { 
-     path: 'customers', 
-     component: CustomerComponent 
+  {
+    path: 'empleados', component: EmpleadosComponent
+  },
+   {
+     path: 'customers',
+     component: CustomerComponent
    },
-   { 
-     path: 'customer/add', 
-     component: AddCustomerComponent 
+   {
+     path: 'customer/add',
+     component: AddCustomerComponent
    },
-   { 
-     path: 'customers/:id', 
-     component: CustomerDetailsComponent 
+   {
+     path: 'customers/:id',
+     component: CustomerDetailsComponent
    },
-   { 
-     path: '', 
-     redirectTo: 'customers', 
+   {
+     path: '',
+     redirectTo: 'customers',
      pathMatch: 'full'
-   }, 
+   },
 ];
 
 @NgModule({
