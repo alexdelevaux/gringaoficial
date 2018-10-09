@@ -12,13 +12,19 @@ import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
 import { CustomerDetailsComponent } from './customer-details/customer-details.component';
 import { AddCustomerComponent } from './add-customer/add-customer.component';
+import { EmpleadosComponent } from './components/empleados/empleados.component';
+import { NuevoEmpleadoComponent } from './components/empleados/nuevo-empleado.component';
+import { DetalleEmpleadoComponent } from './components/empleados/detalle-empleado.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
     CustomerDetailsComponent,
-    AddCustomerComponent
+    AddCustomerComponent,
+    EmpleadosComponent,
+    NuevoEmpleadoComponent,
+    DetalleEmpleadoComponent
   ],
   imports: [
     BrowserModule,
