@@ -20,6 +20,7 @@ db.sequelize.sync({force: true}).then(() => {
 });
 
 require('./app/route/empleado.route.js')(app);
+require('./app/route/venta.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {
@@ -30,35 +31,81 @@ var server = app.listen(8080, function () {
   console.log("App listening at http://%s:%s", host, port);
 })
 
+
+// Esta funcion es para probar que las tablas reciben los datos bien
 function initial(){
 
+  
   let empleados = [
     {
       nombre: "Magdalena",
       apellido: "Paez",
       usuario: "magapaez",
-      contrasena: "pswmaga1",
+      contrasena: "psqmagapaez",
       rol: "v",
       estado: "a",
       observaciones: "llega a las 9 los miercoles",
 
     },
     {
-      nombre: "florencia",
-      apellido: "gonzalez",
-      usuario: "florgon",
-      contrasena: "pswflorgon1",
+      nombre: "Juana",
+      apellido: "Laloca",
+      usuario: "loquita123",
+      contrasena: "psqloquita",
       rol: "a",
       estado: "a",
       observaciones: "tiene llave",
-
     }
    
   ]
+   //Guarda los datos en MySQL
+    const Empleado = db.empleados;
+    for (let i = 0; i < empleados.length; i++) { 
+      Empleado.create(empleados[i]);  
+    }
 
-  // Init data -> save to MySQL
-  const Empleado = db.empleados;
-  for (let i = 0; i < empleados.length; i++) { 
-    Empleado.create(empleados[i]);  
-  }
+
+// VENTAS
+  let ventas = [
+    {
+      empleadoId: 1,
+      fecha: "2018-09-03",
+      total: 512,
+      observaciones: "-",
+
+    },
+    {
+      empleadoId: 2,
+      fecha: "2018-09-03",
+      total: 132,
+      observaciones: "descuento $10",
+    },
+   
+  ]
+     //Guarda los datos en MySQL
+     const Venta = db.ventas;
+     for (let i = 0; i < ventas.length; i++) { 
+       Venta.create(ventas[i]);  
+     }
+
+
+
+// PRODUCTOS
+  let productos = [
+    {
+      producto: "Magdalena",
+      estado: 'a',
+      precioVenta: 124.20,
+      //fechaActualizacion: "2018-09-09",
+      observaciones: "bueno para cardíacos",
+    },
+ 
+  ]
+     //Guarda los datos en MySQL
+     const Producto = db.productos;
+     for (let i = 0; i < productos.length; i++) { 
+       Producto.create(productos[i]);  
+     }
+
+
 }
