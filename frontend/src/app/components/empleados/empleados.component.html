@@ -1,3 +1,26 @@
-<p>
-  empleados works!
-</p>
+<h1 class="text-center mb-4">Empleados</h1>
+
+<p-table [value]="empleados">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>id</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Usuario</th>
+          <th>Rol</th>
+          <th>Estado</th>
+          <th>Observaciones</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-empleado>
+      <tr>
+          <td>{{empleado.id}}</td>
+          <td>{{empleado.nombre}}</td>
+          <td>{{empleado.apellido}}</td>
+          <td>{{empleado.usuario}}</td>
+          <td>{{empleado.rol}}</td>
+          <td>{{empleado.estado}}</td>
+          <td>{{empleado.observaciones}}</td>
+      </tr>
+  </ng-template>
+</p-table>

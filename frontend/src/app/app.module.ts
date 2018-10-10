@@ -4,7 +4,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { FormsModule }   from '@angular/forms';
 import { HttpClientModule }    from '@angular/common/http';
 
+// Modulos de PrimeNG
 import {ButtonModule} from 'primeng/button';
+import {TableModule} from 'primeng/table';
+
 
 import { AppRoutingModule }     from './app-routing/app-routing.module';
 
@@ -32,7 +35,8 @@ import { DetalleEmpleadoComponent } from './components/empleados/detalle-emplead
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    ButtonModule
+    ButtonModule,
+    TableModule
   ],
   providers: [],
   bootstrap: [AppComponent]
