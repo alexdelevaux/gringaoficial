@@ -38,8 +38,9 @@ export class EmpleadosService {
     return this.http.get<Empleado>(url);
   }
 
-  addEmpleado (empleado: Empleado): Observable<Empleado> {
-    return this.http.post<Empleado>(this.empleadosUrl, empleado, httpOptions);
+  addEmpleado (empleado: Empleado) {
+    return this.http.post<Empleado>(this.empleadosUrl, empleado, httpOptions).toPromise()
+    .then(data => { return data; });
   }
 
   deleteEmpleado (empleado: Empleado | number): Observable<Empleado> {

@@ -7,9 +7,16 @@ import { HttpClientModule }    from '@angular/common/http';
 // Modulos de PrimeNG
 import {ButtonModule} from 'primeng/button';
 import {TableModule} from 'primeng/table';
+import {DialogModule} from 'primeng/dialog';
+import {InputTextModule} from 'primeng/inputtext';
+import {KeyFilterModule} from 'primeng/keyfilter';
+import {PasswordModule} from 'primeng/password';
+import {ToastModule} from 'primeng/toast';
 
+// Servicios
 
 import { AppRoutingModule }     from './app-routing/app-routing.module';
+
 
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customer/customer.component';
@@ -36,9 +43,15 @@ import { DetalleEmpleadoComponent } from './components/empleados/detalle-emplead
     AppRoutingModule,
     HttpClientModule,
     ButtonModule,
-    TableModule
+    TableModule,
+    DialogModule,
+    InputTextModule,
+    KeyFilterModule,
+    PasswordModule,
+    ToastModule
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
