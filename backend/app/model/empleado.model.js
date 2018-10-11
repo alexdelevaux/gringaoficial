@@ -41,10 +41,6 @@ module.exports = (sequelize, Sequelize) => {
 		}
 		
 	});
-	
-/*   Empleado.associate = (models) => {
-    Empleado.hasMany(models.venta);
-	}; */
 
 	
 	return Empleado;
