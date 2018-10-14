@@ -39,6 +39,7 @@ db.ventas = require('../model/venta.model.js')(sequelize, Sequelize);
 
 
 //  Nuevo
+// El orden respeta el del script de creacion de tablas
 db.rubros = require('../model/rubros.js')(sequelize, Sequelize);
 db.productos = require('../model/productos.js')(sequelize, Sequelize);
 db.etiquetas = require('../model/etiquetas.js')(sequelize, Sequelize);
@@ -46,10 +47,10 @@ db.empleados = require('../model/empleados.js')(sequelize, Sequelize);
 db.proveedores = require('../model/proveedores.js')(sequelize, Sequelize);
 db.ventas = require('../model/ventas.js')(sequelize, Sequelize);
 db.lineasVenta = require('../model/lineasVenta.js')(sequelize, Sequelize);
-db.pedidos = require('../model/pedidos.js')(sequelize, Sequelize);
-db.compras = require('../model/compras.js')(sequelize, Sequelize);
-db.lineasPedido = require('../model/lineasPedido.js')(sequelize, Sequelize);
-db.lineasCompra = require('../model/lineasCompra.js')(sequelize, Sequelize);
+ db.pedidos = require('../model/pedidos.js')(sequelize, Sequelize);
+// db.compras = require('../model/compras.js')(sequelize, Sequelize);
+// db.lineasPedido = require('../model/lineasPedido.js')(sequelize, Sequelize);
+// db.lineasCompra = require('../model/lineasCompra.js')(sequelize, Sequelize);
 
 
 

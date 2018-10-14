@@ -29,21 +29,23 @@ const db = require('./app/config/db.config.js');
 });
 
 
-//  Viejo
-/* require('./app/route/rubro.route.js')(app);
-require('./app/route/producto.route.js')(app);
-require('./app/route/empleado.route.js')(app);
-require('./app/route/venta.route.js')(app);
-  */
 
 //  Nuevo
 require('./app/route/rubro.route.js')(app);
 require('./app/route/producto.route.js')(app);
+require('./app/route/etiqueta.route.js')(app);
 require('./app/route/empleado.route.js')(app);
 require('./app/route/venta.route.js')(app);
-require('./app/route/producto.route.js')(app);
- 
+require('./app/route/proveedor.route.js')(app);
+require('./app/route/lineas_venta.route.js')(app);
+require('./app/route/pedido.route.js')(app);
 
+/*
+require('./app/route/compra.route.js')(app);
+require('./app/route/lineas_pedido.route.js')(app);
+require('./app/route/lineas_compra.route.js')(app);
+ 
+ */
 
 // Crea un Server
 var server = app.listen(8080, function () {
@@ -58,7 +60,7 @@ var server = app.listen(8080, function () {
 // Esta funcion es para probar que las tablas reciben los datos bien
  function initial(){
 
-   
+ /*   
   
   let empleados = [
     {
@@ -90,7 +92,7 @@ var server = app.listen(8080, function () {
       Empleado.create(empleados[i]);  
 
     }
-
+ */
     // Prueba de RAW query
 /*     db.sequelize.query("UPDATE empleados SET apellido = 'apllidoNuevo' WHERE nombre = 'Magdalena'").spread((results, metadata) => {
       // Results will be an empty array and metadata will contain the number of affected rows.
