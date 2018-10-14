@@ -4,12 +4,11 @@ module.exports = (sequelize, Sequelize) => {
 		nombre: {
 			type: Sequelize.STRING,
 			allowNull: false
-
 	  },
+
 	  apellido: {
 			type: Sequelize.STRING,
 			allowNull: false
-
 		},
 
 		usuario: {
@@ -39,9 +38,7 @@ module.exports = (sequelize, Sequelize) => {
 			allowNull: true
 			
 		}
-		
 	});
-
 	
 	return Empleado;
 }

@@ -13,22 +13,30 @@ app.use(cors(corsOptions))
 
 const db = require('./app/config/db.config.js');
   
+// Borra las tablas
 // force: true will drop the table if it already exists
-/* db.sequelize.sync({force: true}).then(() => {
+db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync with { force: true }');
-  initial();
-}); */
-
-  db.sequelize.sync().then(() => {
-//  console.log('Drop and Resync with { force: true }');
   initial();
 });
 
+// No borra las tablas
+/* 
+  db.sequelize.sync().then(() => {
+//  console.log('Drop and Resync with { force: true }');
+  console.log('Sync sin force');
+  initial();
+});
 
+ */
+
+require('./app/route/rubro.route.js')(app);
+require('./app/route/producto.route.js')(app);
 require('./app/route/empleado.route.js')(app);
 require('./app/route/venta.route.js')(app);
  
-// Create a Server
+
+// Crea un Server
 var server = app.listen(8080, function () {
  
   let host = server.address().address
@@ -41,6 +49,7 @@ var server = app.listen(8080, function () {
 // Esta funcion es para probar que las tablas reciben los datos bien
  function initial(){
 
+   
   
   let empleados = [
     {
@@ -65,12 +74,27 @@ var server = app.listen(8080, function () {
    
   ]
    //Guarda los datos en MySQL
-/*     const Empleado = db.empleados;
+     const Empleado = db.empleados;
     for (let i = 0; i < empleados.length; i++) { 
       Empleado.create(empleados[i]);  
-    } */
+
+    }
+
+    
+    db.sequelize.query("UPDATE empleados SET apellido = 'apllidoNuevo' WHERE nombre = 'Magdalena'").spread((results, metadata) => {
+      // Results will be an empty array and metadata will contain the number of affected rows.
+      console.log('#############HACE EL QUERY########');
+      console.log('resultado : ', results.nombre);
+      console.log('metadata : ', metadata);
+      
+    })
 
 
+  }
+
+
+
+    /*
 // VENTAS
   let ventas = [
     {
@@ -89,13 +113,25 @@ var server = app.listen(8080, function () {
    
   ]
      //Guarda los datos en MySQL
-/*      const Venta = db.ventas;
+      const Venta = db.ventas;
      for (let i = 0; i < ventas.length; i++) { 
        Venta.create(ventas[i]);  
-     } */
 
+     }
 
+let rubros = [
+        {
+          rubro: "Lacteo",
+          estado: 'a',
+        },
+     
+      ]
 
+      const Rubro = db.rubros;
+      for (let i = 0; i < rubros.length; i++) { 
+        Rubro.create(rubros[i]);  
+      }
+ 
 // PRODUCTOS
   let productos = [
     {
@@ -104,14 +140,13 @@ var server = app.listen(8080, function () {
       precioVenta: 124.20,
       //fechaActualizacion: "2018-09-09",
       observaciones: "bueno para cardíacos",
-    },
+      rubroId: 1
+    }
  
   ]
      //Guarda los datos en MySQL
-/*      const Producto = db.productos;
+      const Producto = db.productos;
      for (let i = 0; i < productos.length; i++) { 
        Producto.create(productos[i]);  
      }
- */
-
-} 
+  }  */

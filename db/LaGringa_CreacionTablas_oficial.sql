@@ -59,7 +59,7 @@ ENGINE = InnoDB;
 -- use proyecto;
 -- drop table if exists etiquetas;
 -- -----------------------------------------------------
--- Table `proyecto`.`etiqueta`
+-- Table `proyecto`.`etiquetas`
 -- -------------------------------------------------
 
 ----

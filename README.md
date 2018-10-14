@@ -1,6 +1,9 @@
 # gringaoficial
 Repositorio oficial de La gringa
 
+## 14/10/18
+- [F] **IMPORTANTE** Se utilizo un paquete de npm sequelizer para pasar automaticamente las tablas a modelos. Por lo que los modelos ahora se corresponden 100% con los de la db porque están creados a partir de las tablas. (Ej: Ahora el id es idEmpleado /idVenta y las tablas estan en plural)
+- [F] Se guardaron los modelos viejos (por las dudas) en la carpeta /models/old
 
 ## 10/10/18
 - [F] Se creó la parte de ventas
