@@ -21,15 +21,21 @@ exports.findAll = (req, res) => {
 
 // Find a Empleado by Id
 exports.findById = (req, res) => {	
-	Empleado.findById(req.params.empleadoId).then(empleado => {
+	Empleado.findById(req.params.idEmpleado).then(empleado => {
 		res.json(empleado);
 	})
+/* 
+	Empleado.findById(req.params.empleadoId).then(empleado => {
+		res.json(empleado);
+	}) */
 };
  
 // Update a Customer
 exports.update = (req, res) => {
 	let empleado = req.body;
-	let id = req.body.id;
+//	let id = req.body.id;
+	
+	let id = req.body.idEmpleado;
 	Empleado.update(empleado, 
 					 { where: {id: id} }
 				   ).then(() => {

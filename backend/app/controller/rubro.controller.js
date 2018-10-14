@@ -10,7 +10,6 @@ exports.create = (req, res) => {
 		res.json(result);
 	});
 };
- 
 
 exports.findAll = (req, res) => {
 	Rubro.findAll().then(rubros => {
@@ -21,7 +20,7 @@ exports.findAll = (req, res) => {
 
 // Busca un Rubro por Id
 exports.findById = (req, res) => {	
-	Rubro.findById(req.params.ventaId).then(rubro => {
+	Rubro.findById(req.params.rubroId).then(rubro => {
 		res.json(rubro);
 	})
 };
@@ -39,7 +38,7 @@ exports.update = (req, res) => {
  
 // Elimina un Rubro por Id
 exports.delete = (req, res) => {
-	const id = req.params.ventaId;
+	const id = req.params.rubroId;
 	Rubro.destroy({
 	  where: { id: id }
 	}).then(() => {
