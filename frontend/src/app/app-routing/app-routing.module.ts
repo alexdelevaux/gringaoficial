@@ -4,10 +4,18 @@ import { CustomerComponent } from '../customer/customer.component';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { EmpleadosComponent } from '../components/empleados/empleados.component';
+import { ProductosComponent } from '../components/productos/productos.component';
+import { VentasComponent } from '../components/ventas/ventas.component';
 
 const routes: Routes = [
   {
     path: 'empleados', component: EmpleadosComponent
+  },
+  {
+    path: 'productos', component: ProductosComponent
+  },
+  {
+    path: 'ventas', component: VentasComponent
   },
    {
      path: 'customers',

@@ -21,6 +21,7 @@ db.sequelize.sync({force: true}).then(() => {
 
 require('./app/route/empleado.route.js')(app);
 require('./app/route/venta.route.js')(app);
+require('./app/route/producto.route.js')(app);
  
 // Create a Server
 var server = app.listen(8080, function () {

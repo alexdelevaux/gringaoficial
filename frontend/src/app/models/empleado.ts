@@ -8,3 +8,4 @@ export class Empleado {
   estado: string;
   observaciones: string;
 }
+

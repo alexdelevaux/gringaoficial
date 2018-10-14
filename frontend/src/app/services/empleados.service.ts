@@ -43,15 +43,17 @@ export class EmpleadosService {
     .then(data => { return data; });
   }
 
-  deleteEmpleado (empleado: Empleado | number): Observable<Empleado> {
+  deleteEmpleado (empleado: Empleado | number){
     const id = typeof empleado === 'number' ? empleado : empleado.id;
     const url = `${this.empleadosUrl}/${id}`;
 
-    return this.http.delete<Empleado>(url, httpOptions);
+    return this.http.delete<Empleado>(url, httpOptions).toPromise()
+    .then(data => { return data; });;
   }
 
-  updateEmpleado (empleado: Empleado): Observable<any> {
-    return this.http.put(this.empleadosUrl, empleado, httpOptions);
+  updateEmpleado (empleado: Empleado) {
+    return this.http.put(this.empleadosUrl, empleado, httpOptions).toPromise()
+    .then(data => { return data; });;
   }
 
 
