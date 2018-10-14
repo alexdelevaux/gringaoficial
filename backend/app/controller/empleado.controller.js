@@ -19,7 +19,7 @@ exports.findAll = (req, res) => {
 	});
 };
 
-// Find a Empleado by Id
+// Busca un empleado por el id
 exports.findById = (req, res) => {	
 	Empleado.findById(req.params.idEmpleado).then(empleado => {
 		res.json(empleado);
@@ -37,7 +37,7 @@ exports.update = (req, res) => {
 	
 	let id = req.body.idEmpleado;
 	Empleado.update(empleado, 
-					 { where: {id: id} }
+					 { where: {idEmpleado: id} }
 				   ).then(() => {
 						 res.status(200).json({msg:"update exitoso de empelado con id = " + id});
 				   });	
@@ -47,7 +47,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
 	const id = req.params.empleadoId;
 	Empleado.destroy({
-	  where: { id: id }
+	  where: { idEmpleado: id }
 	}).then(() => {
 	  res.status(200).json({msg:'Delete exitoso de empleado con id = ' + id});
 	});
