@@ -41,6 +41,7 @@ require('./app/route/rubro.route.js')(app);
 require('./app/route/producto.route.js')(app);
 require('./app/route/empleado.route.js')(app);
 require('./app/route/venta.route.js')(app);
+require('./app/route/producto.route.js')(app);
  
 
 

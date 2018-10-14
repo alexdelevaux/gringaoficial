@@ -1,0 +1,96 @@
+<h1 class="text-center titulo color-producto  mb-4">Productos</h1>
+
+<div class="text-center">
+  <button type="button" (click)="abrirDialogo()" class="btn boton-producto mb-1">Nuevo Producto</button>
+</div>
+
+<p-table [value]="productos" selectionMode="single" [(selection)]="productoElegido" datakey="id">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>ID</th>
+          <th>Producto</th>
+          <th>Estado</th>
+          <th>Precio de Venta</th>
+          <th>Creado</th>
+          <th>Actualizado</th>
+          <th>Observaciones</th>
+          <th>Opciones</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-producto>
+      <tr>
+          <td>{{producto.id}}</td>
+          <td>{{producto.producto}}</td>
+          <td>{{producto.estado}}</td>
+          <td>$ {{producto.precioVenta}}</td>
+          <td>{{producto.createdAt}}</td>
+          <td>{{producto.updatedAt}}</td>
+          <td>{{producto.observaciones}}</td>
+          <td>
+            <button type="button" (click)="borrar(producto)" class="btn btn-danger btn-sm"><i class="far fa-trash-alt"></i></button>
+            <button type="button" (click)="actualizar(producto)" class="btn btn-success btn-sm"><i class="fas fa-edit"></i></button>
+          </td>
+      </tr>
+  </ng-template>
+
+</p-table>
+
+<button type="button" (click)="abrirDialogo()" class="btn boton-producto">Nuevo Producto</button>
+
+<p-dialog header="Detalles" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="500">
+  <div class="ui-g ui-fluid" *ngIf="producto">
+
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="producto">Producto</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="producto" placeholder="" [(ngModel)]="producto.producto" />
+          </div>
+      </div>
+
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="estado">Estado</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="estado" placeholder="" [(ngModel)]="producto.estado" />
+          </div>
+      </div>
+
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="precioVenta">Precio de Venta</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="precioVenta" placeholder="" [(ngModel)]="producto.precioVenta" />
+          </div>
+      </div>
+
+
+      <div class="ui-g-12">
+          <div class="ui-g-4">
+              <label for="observaciones">Observaciones</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="observaciones" placeholder="" [(ngModel)]="producto.observaciones" />
+          </div>
+      </div>
+
+
+  </div>
+  <p-footer>
+      <div class="ui-dialog-buttonpane ui-helper-clearfix">
+          <!-- <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button> -->
+          <button type="button" pButton icon="fa fa-check" (click)="save()" label="Guardar"></button>
+      </div>
+  </p-footer>
+</p-dialog>
+
+<p-toast [style]="{marginTop: '80px'}" key="nuevoProducto"></p-toast>
+
+<p-toast [style]="{marginTop: '80px'}" key="cambioProducto"></p-toast>
+
+<p-toast [style]="{marginTop: '80px'}" key="borraProducto"></p-toast>
+
+<p-confirmDialog></p-confirmDialog>

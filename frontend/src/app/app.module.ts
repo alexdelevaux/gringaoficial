@@ -12,6 +12,8 @@ import {InputTextModule} from 'primeng/inputtext';
 import {KeyFilterModule} from 'primeng/keyfilter';
 import {PasswordModule} from 'primeng/password';
 import {ToastModule} from 'primeng/toast';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+
 
 // Servicios
 
@@ -25,6 +27,9 @@ import { AddCustomerComponent } from './add-customer/add-customer.component';
 import { EmpleadosComponent } from './components/empleados/empleados.component';
 import { NuevoEmpleadoComponent } from './components/empleados/nuevo-empleado.component';
 import { DetalleEmpleadoComponent } from './components/empleados/detalle-empleado.component';
+import { BarranavComponent } from './components/barranav/barranav.component';
+import { ProductosComponent } from './components/productos/productos.component';
+import { VentasComponent } from './components/ventas/ventas.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +39,10 @@ import { DetalleEmpleadoComponent } from './components/empleados/detalle-emplead
     AddCustomerComponent,
     EmpleadosComponent,
     NuevoEmpleadoComponent,
-    DetalleEmpleadoComponent
+    DetalleEmpleadoComponent,
+    BarranavComponent,
+    ProductosComponent,
+    VentasComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +56,8 @@ import { DetalleEmpleadoComponent } from './components/empleados/detalle-emplead
     InputTextModule,
     KeyFilterModule,
     PasswordModule,
-    ToastModule
+    ToastModule,
+    ConfirmDialogModule
   ],
   providers: [
   ],
