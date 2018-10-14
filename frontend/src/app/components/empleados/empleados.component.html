@@ -19,7 +19,7 @@
   </ng-template>
   <ng-template pTemplate="body" let-empleado>
       <tr>
-          <td>{{empleado.id}}</td>
+          <td>{{empleado.idEmpleado}}</td>
           <td>{{empleado.nombre}}</td>
           <td>{{empleado.apellido}}</td>
           <td>{{empleado.usuario}}</td>
@@ -42,10 +42,19 @@
 
       <div class="ui-g-12">
           <div class="ui-g-4">
+              <label for="idEmpleado">ID</label>
+          </div>
+          <div class="ui-g-8">
+              <input pInputText id="idEmpleado" [(ngModel)]="empleado.idEmpleado" />
+          </div>
+      </div>
+
+      <div class="ui-g-12">
+          <div class="ui-g-4">
               <label for="nombre">Nombre</label>
           </div>
           <div class="ui-g-8">
-              <input pInputText id="nombre" placeholder="" [(ngModel)]="empleado.nombre" />
+              <input pInputText id="nombre" placeholder=""  [(ngModel)]="empleado.nombre" />
           </div>
       </div>
 

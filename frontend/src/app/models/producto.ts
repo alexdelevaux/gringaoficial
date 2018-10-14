@@ -1,5 +1,6 @@
 export class Producto {
-  id: number;
+  idProducto: number;
+  idRubro: number;
   producto: string;
   estado: string;
   precioVenta: number;

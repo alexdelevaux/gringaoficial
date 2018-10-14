@@ -44,7 +44,7 @@ export class EmpleadosService {
   }
 
   deleteEmpleado (empleado: Empleado | number){
-    const id = typeof empleado === 'number' ? empleado : empleado.id;
+    const id = typeof empleado === 'number' ? empleado : empleado.idEmpleado;
     const url = `${this.empleadosUrl}/${id}`;
 
     return this.http.delete<Empleado>(url, httpOptions).toPromise()

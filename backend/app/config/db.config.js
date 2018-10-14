@@ -26,14 +26,6 @@ db.sequelize = sequelize;
 //db.customers = require('../model/customer.model.js')(sequelize, Sequelize);
 
 
-<<<<<<< HEAD
-db.rubros = require('../model/rubros.js')(sequelize, Sequelize);
-db.productos = require('../model/productos.js')(sequelize, Sequelize);
-
-
-db.empleados = require('../model/empleados.js')(sequelize, Sequelize);
-db.ventas = require('../model/ventas.js')(sequelize, Sequelize);
-=======
 // Viejo
 /* db.rubros = require('../model/rubro.model.js')(sequelize, Sequelize);
 db.productos = require('../model/producto.model.js')(sequelize, Sequelize);
@@ -42,7 +34,6 @@ db.productos = require('../model/producto.model.js')(sequelize, Sequelize);
 db.empleados = require('../model/empleado.model.js')(sequelize, Sequelize);
 db.ventas = require('../model/venta.model.js')(sequelize, Sequelize);
  */
->>>>>>> 561038a70bd565a651d324cfd893153b015f93b7
 
 
 

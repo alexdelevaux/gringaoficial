@@ -16,9 +16,23 @@ export class EmpleadosComponent implements OnInit {
 
   empleados: Empleado[];
 
+  ids: number[] = [];
+
+  obtenerIDS() {
+    for (let index = 0; index < this.empleados.length; index++) {
+      const element = this.empleados[index].idEmpleado;
+      this.ids.push(element);
+    }
+    console.log(this.ids);
+  }
+
+  nuevoID: number  = 5901952;
+
+  nombreTEST = "TESTING"
+
   empleado: Empleado = {
-    id: null,
-    nombre: "",
+    idEmpleado: this.nuevoID,
+    nombre: this.nombreTEST,
     apellido: "",
     usuario: "",
     contrasena: "",
@@ -26,6 +40,7 @@ export class EmpleadosComponent implements OnInit {
     estado: "",
     observaciones: ""
   }
+
 
 
   empleadoElegido: Empleado;
@@ -39,12 +54,28 @@ export class EmpleadosComponent implements OnInit {
   constructor( private empleadosService: EmpleadosService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
-    this.empleadosService.getEmpleados().then(empleados => this.empleados = empleados);
+    this.empleadosService.getEmpleados().then(empleados => {
+      this.empleados = empleados
+      console.log('Valor de this.empleados: ', this.empleados);
+      for (let i = 0; i < this.empleados.length; i++) {
+        const id = this.empleados[i].idEmpleado;
+        this.ids.push(id)
+      }
+      console.log('IDS: ', this.ids);
+      this.nuevoID = Math.max(...this.ids);
+      console.log(this.nuevoID);
+      this.nuevoID += 1;
+      console.log('Nuevo ID', this.nuevoID);
+
+    } );
+    //console.log(this.obtenerIDS());
+
   }
 
   abrirDialogo() {
     this.nuevoEmpleado = true;
     this.displayDialog = true;
+    console.log('))))))))))))))NUEVOID((((((((((((((((',this.nuevoID);
   }
 
   borrar(empleado: Empleado) {
@@ -64,7 +95,7 @@ export class EmpleadosComponent implements OnInit {
             key: "cambioEmpleado" // CLAVE
           });
 
-          this.empleadosService.deleteEmpleado(empleado.id);
+          this.empleadosService.deleteEmpleado(empleado.idEmpleado);
           this.empleadosService.getEmpleados().then(empleados => this.empleados = empleados);
       }
   });
@@ -114,7 +145,16 @@ export class EmpleadosComponent implements OnInit {
             empleados[this.empleados.indexOf(this.empleadoSeleccionado)] = this.empleado;
 
         this.empleados = empleados;
-        this.empleado = null
+        this.empleado = {
+          idEmpleado: this.nuevoID,
+          nombre: "",
+          apellido: "",
+          usuario: "",
+          contrasena: "",
+          rol: "",
+          estado: "",
+          observaciones: ""
+        }
 
 
   }

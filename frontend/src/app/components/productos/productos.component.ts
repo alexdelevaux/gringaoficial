@@ -17,7 +17,8 @@ export class ProductosComponent implements OnInit {
   productos: Producto[];
 
   producto: Producto = {
-    id: null,
+    idProducto: null,
+    idRubro: null,
     producto: "",
     estado: "",
     precioVenta: null,
@@ -63,7 +64,7 @@ export class ProductosComponent implements OnInit {
             key: "cambioProducto" // CLAVE
           });
 
-          this.productosService.deleteProducto(producto.id);
+          this.productosService.deleteProducto(producto.idProducto);
           this.productosService.getProductos().then(productos => this.productos = productos);
       }
   });

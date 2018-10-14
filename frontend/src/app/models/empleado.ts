@@ -1,5 +1,5 @@
 export class Empleado {
-  id: number;
+  idEmpleado: number;
   nombre: string;
   apellido: string;
   usuario: string;
