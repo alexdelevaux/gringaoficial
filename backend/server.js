@@ -15,26 +15,34 @@ const db = require('./app/config/db.config.js');
   
 // Borra las tablas
 // force: true will drop the table if it already exists
-db.sequelize.sync({force: true}).then(() => {
+/* db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync with { force: true }');
   initial();
-});
+}); */
 
 // No borra las tablas
-/* 
+
   db.sequelize.sync().then(() => {
 //  console.log('Drop and Resync with { force: true }');
   console.log('Sync sin force');
   initial();
 });
 
- */
 
+//  Viejo
+/* require('./app/route/rubro.route.js')(app);
+require('./app/route/producto.route.js')(app);
+require('./app/route/empleado.route.js')(app);
+require('./app/route/venta.route.js')(app);
+  */
+
+//  Nuevo
 require('./app/route/rubro.route.js')(app);
 require('./app/route/producto.route.js')(app);
 require('./app/route/empleado.route.js')(app);
 require('./app/route/venta.route.js')(app);
  
+
 
 // Crea un Server
 var server = app.listen(8080, function () {
@@ -53,21 +61,23 @@ var server = app.listen(8080, function () {
   
   let empleados = [
     {
-      nombre: "Magdalena",
-      apellido: "Paez",
-      usuario: "magapaez",
-      contrasena: "psqmagapaez",
-      rol: "v",
+      idEmpleado: 20,
+      nombre: "Fernanda",
+      apellido: "Valle",
+      usuario: "fer64",
+      contrasena: "pswfervalle",
+      rol: "a",
       estado: "a",
-      observaciones: "llega a las 9 los miercoles",
+      observaciones: "No trabaja los sabados",
 
     },
     {
-      nombre: "Juana",
-      apellido: "Laloca",
-      usuario: "loquita123",
-      contrasena: "psqloquita",
-      rol: "a",
+      idEmpleado: 40,
+      nombre: "Mario",
+      apellido: "Mozo",
+      usuario: "mariomozo",
+      contrasena: "pswmario",
+      rol: "v",
       estado: "a",
       observaciones: "tiene llave",
     }
@@ -80,14 +90,14 @@ var server = app.listen(8080, function () {
 
     }
 
-    
-    db.sequelize.query("UPDATE empleados SET apellido = 'apllidoNuevo' WHERE nombre = 'Magdalena'").spread((results, metadata) => {
+    // Prueba de RAW query
+/*     db.sequelize.query("UPDATE empleados SET apellido = 'apllidoNuevo' WHERE nombre = 'Magdalena'").spread((results, metadata) => {
       // Results will be an empty array and metadata will contain the number of affected rows.
       console.log('#############HACE EL QUERY########');
       console.log('resultado : ', results.nombre);
       console.log('metadata : ', metadata);
       
-    })
+    }) */
 
 
   }

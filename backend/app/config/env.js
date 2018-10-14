@@ -1,5 +1,6 @@
 const env = {
   database: 'gringa',
+  //database: 'proyecto',
   username: 'root',
 // contrasena ale
 //  password: 'password',
