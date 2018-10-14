@@ -13,15 +13,30 @@ app.use(cors(corsOptions))
 
 const db = require('./app/config/db.config.js');
   
+// Borra las tablas
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: true}).then(() => {
   console.log('Drop and Resync with { force: true }');
   initial();
 });
 
-require('./app/route/customer.route.js')(app);
+// No borra las tablas
+/* 
+  db.sequelize.sync().then(() => {
+//  console.log('Drop and Resync with { force: true }');
+  console.log('Sync sin force');
+  initial();
+});
+
+ */
+
+require('./app/route/rubro.route.js')(app);
+require('./app/route/producto.route.js')(app);
+require('./app/route/empleado.route.js')(app);
+require('./app/route/venta.route.js')(app);
  
-// Create a Server
+
+// Crea un Server
 var server = app.listen(8080, function () {
  
   let host = server.address().address
@@ -30,56 +45,108 @@ var server = app.listen(8080, function () {
   console.log("App listening at http://%s:%s", host, port);
 })
 
-function initial(){
 
-  let customers = [
+// Esta funcion es para probar que las tablas reciben los datos bien
+ function initial(){
+
+   
+  
+  let empleados = [
     {
-      id: 1,
-      firstname: "Joe",
-      lastname: "Thomas",
-      age: 36
+      nombre: "Magdalena",
+      apellido: "Paez",
+      usuario: "magapaez",
+      contrasena: "psqmagapaez",
+      rol: "v",
+      estado: "a",
+      observaciones: "llega a las 9 los miercoles",
+
     },
     {
-      id: 2,
-      firstname: "Peter",
-      lastname: "Smith",
-      age: 18
-    },
-    {
-      id: 3,
-      firstname: "Lauren",
-      lastname: "Taylor",
-      age: 31
-    },
-    {
-      id: 4,
-      firstname: "Mary",
-      lastname: "Taylor",
-      age: 24
-    },
-    {
-      id: 5,
-      firstname: "David",
-      lastname: "Moore",
-      age: 25
-    },
-    {
-      id: 6,
-      firstname: "Holly",
-      lastname: "Davies",
-      age: 27
-    },
-    {
-      id: 7,
-      firstname: "Michael",
-      lastname: "Brown",
-      age: 45
+      nombre: "Juana",
+      apellido: "Laloca",
+      usuario: "loquita123",
+      contrasena: "psqloquita",
+      rol: "a",
+      estado: "a",
+      observaciones: "tiene llave",
     }
+   
   ]
+   //Guarda los datos en MySQL
+     const Empleado = db.empleados;
+    for (let i = 0; i < empleados.length; i++) { 
+      Empleado.create(empleados[i]);  
 
-  // Init data -> save to MySQL
-  const Customer = db.customers;
-  for (let i = 0; i < customers.length; i++) { 
-    Customer.create(customers[i]);  
+    }
+
+    
+    db.sequelize.query("UPDATE empleados SET apellido = 'apllidoNuevo' WHERE nombre = 'Magdalena'").spread((results, metadata) => {
+      // Results will be an empty array and metadata will contain the number of affected rows.
+      console.log('#############HACE EL QUERY########');
+      console.log('resultado : ', results.nombre);
+      console.log('metadata : ', metadata);
+      
+    })
+
+
   }
-}
+
+
+
+    /*
+// VENTAS
+  let ventas = [
+    {
+      empleadoId: 1,
+      fecha: "2018-09-03",
+      total: 512,
+      observaciones: "-",
+
+    },
+    {
+      empleadoId: 2,
+      fecha: "2018-09-03",
+      total: 132,
+      observaciones: "descuento $10",
+    },
+   
+  ]
+     //Guarda los datos en MySQL
+      const Venta = db.ventas;
+     for (let i = 0; i < ventas.length; i++) { 
+       Venta.create(ventas[i]);  
+
+     }
+
+let rubros = [
+        {
+          rubro: "Lacteo",
+          estado: 'a',
+        },
+     
+      ]
+
+      const Rubro = db.rubros;
+      for (let i = 0; i < rubros.length; i++) { 
+        Rubro.create(rubros[i]);  
+      }
+ 
+// PRODUCTOS
+  let productos = [
+    {
+      producto: "Magdalena",
+      estado: 'a',
+      precioVenta: 124.20,
+      //fechaActualizacion: "2018-09-09",
+      observaciones: "bueno para cardíacos",
+      rubroId: 1
+    }
+ 
+  ]
+     //Guarda los datos en MySQL
+      const Producto = db.productos;
+     for (let i = 0; i < productos.length; i++) { 
+       Producto.create(productos[i]);  
+     }
+  }  */
