@@ -2,6 +2,7 @@
 Repositorio oficial de La gringa
 
 ## 14/10/18
+- [F] Se completo en server el require para que se creen todas las tablas
 - [F] Se creo la carpeta docs/errors en backend para poner sobre errores tipicos y como solucionarlos.
 - [F] Se modificaron los archivos para hacer que funcione todo. 
 - [F] **IMPORTANTE** Se utilizo un paquete de npm sequelizer para pasar automaticamente las tablas a modelos. Por lo que los modelos ahora se corresponden 100% con los de la db porque están creados a partir de las tablas. (Ej: Ahora el id es idEmpleado /idVenta y las tablas estan en plural)

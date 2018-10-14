@@ -66,7 +66,7 @@ var server = app.listen(8080, function () {
       nombre: "Fernanda",
       apellido: "Valle",
       usuario: "fer64",
-      contrasena: "pswfervalle",
+      contrasena: "pswfervalle123",
       rol: "a",
       estado: "a",
       observaciones: "No trabaja los sabados",
