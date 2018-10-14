@@ -1,7 +1,11 @@
 const env = {
   database: 'gringa',
   username: 'root',
-  password: 'password',
+// contrasena ale
+//  password: 'password',
+
+// contrasena fer
+  password: 'MySQL123/*-',
   host: 'localhost',
   dialect: 'mysql',
   pool: {
@@ -11,5 +15,8 @@ const env = {
 	  idle: 10000
   }
 };
+
+
+
 
 module.exports = env;
