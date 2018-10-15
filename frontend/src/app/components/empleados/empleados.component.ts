@@ -26,7 +26,7 @@ export class EmpleadosComponent implements OnInit {
     console.log(this.ids);
   }
 
-  nuevoID: number  = 5901952;
+  nuevoID: number;
 
   nombreTEST = "TESTING"
 
@@ -41,7 +41,17 @@ export class EmpleadosComponent implements OnInit {
     observaciones: ""
   }
 
+  yearFilter: number;
 
+  yearTimeout: any;
+
+  blockSpace: RegExp = /[^\s]/;
+
+  cols: any[];
+
+  roles: any[];
+
+  estados: any[];
 
   empleadoElegido: Empleado;
 
@@ -67,10 +77,46 @@ export class EmpleadosComponent implements OnInit {
       this.nuevoID += 1;
       console.log('Nuevo ID', this.nuevoID);
 
+      this.empleado = {
+        idEmpleado: this.nuevoID,
+        nombre: "",
+        apellido: "",
+        usuario: "",
+        contrasena: "",
+        rol: "",
+        estado: "",
+        observaciones: ""
+      }
+
     } );
     //console.log(this.obtenerIDS());
 
-  }
+
+    this.cols = [
+      { field: 'idEmpleado', header: 'ID' },
+      { field: 'nombre', header: 'Nombre' },
+      { field: 'apellido', header: 'Apellido' },
+      { field: 'usuario', header: 'Usuario' },
+      { field: 'rol', header: 'Rol' },
+      { field: 'estado', header: 'Estado' },
+      { field: 'observaciones', header: 'Observaciones' },
+      { field: 'opciones', header: 'Opciones' }
+    ];
+
+    this.roles = [
+      { label: 'Todos', value: null},
+      { label: 'Admin', value: 'a' },
+      { label: 'Vendedor', value: 'v' },
+    ];
+
+    this.estados = [
+      {label: 'Todos', value: null},
+      { label: 'Activo', value: 'a' },
+      { label: 'Inactivo', value: 'i' },
+    ]
+
+
+  } // Fin del ngOnInit()
 
   abrirDialogo() {
     this.nuevoEmpleado = true;
@@ -108,6 +154,16 @@ export class EmpleadosComponent implements OnInit {
     this.displayDialog = true;
 
   }
+
+  onYearChange(event, dt) {
+    if (this.yearTimeout) {
+        clearTimeout(this.yearTimeout);
+    }
+
+    this.yearTimeout = setTimeout(() => {
+        dt.filter(event.value, 'year', 'gt');
+    }, 250);
+}
 
   save() {
     console.log(this.empleado);

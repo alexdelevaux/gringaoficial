@@ -13,6 +13,7 @@ import {KeyFilterModule} from 'primeng/keyfilter';
 import {PasswordModule} from 'primeng/password';
 import {ToastModule} from 'primeng/toast';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { DropdownModule } from 'primeng/dropdown';
 
 
 // Servicios
@@ -57,7 +58,8 @@ import { VentasComponent } from './components/ventas/ventas.component';
     KeyFilterModule,
     PasswordModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    DropdownModule
   ],
   providers: [
   ],
