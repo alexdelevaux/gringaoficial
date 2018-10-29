@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomeGringaComponent } from '../components/home-gringa/home-gringa.component';
 import { CustomerComponent } from '../customer/customer.component';
 import { AddCustomerComponent } from '../add-customer/add-customer.component';
 import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
@@ -17,7 +18,10 @@ const routes: Routes = [
   {
     path: 'ventas', component: VentasComponent
   },
-   {
+  {
+    path: 'home', component: HomeGringaComponent
+  },
+   /* {
      path: 'customers',
      component: CustomerComponent
    },
@@ -28,10 +32,10 @@ const routes: Routes = [
    {
      path: 'customers/:id',
      component: CustomerDetailsComponent
-   },
+   }, */
    {
      path: '',
-     redirectTo: 'customers',
+     redirectTo: 'home',
      pathMatch: 'full'
    },
 ];

@@ -1,17 +1,39 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
   <div class="container">
+      <a class="navbar-brand" href="#">La Gringa - Gestión</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <button type="button" id="empleados" class="btn botones mr-2" [routerLink]="['/empleados']" routerLinkActive="router-link-active" >Empleados</button>
-        <button type="button" id="proveedores" class="btn botones mr-2" [routerLink]="['/proveedores']" routerLinkActive="router-link-active" >Proveedores</button>
-        <button type="button" id="productos" class="btn botones mr-2" [routerLink]="['/productos']" routerLinkActive="router-link-active" >Productos</button>
-        <button type="button" id="rubros" class="btn botones mr-2">Rubros</button>
-        <button type="button" id="ventas" class="btn botones mr-2" [routerLink]="['/ventas']" routerLinkActive="router-link-active" >Ventas</button>
-        <button type="button" id="compras" class="btn botones mr-2">Compras</button>
-        <button type="button" id="pedidos" class="btn botones mr-2">Pedidos</button>
+        <button type="button" id="empleados" class="btn botones mr-2" [routerLink]="['/empleados']"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        routerLinkActive="router-link-active" >Empleados</button>
+
+        <button type="button" id="proveedores" class="btn botones mr-2" [routerLink]="['/proveedores']"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        routerLinkActive="router-link-active" >Proveedores</button>
+
+        <button type="button" id="productos" class="btn botones mr-2" [routerLink]="['/productos']" routerLinkActive="router-link-active"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        >Productos</button>
+
+        <button type="button" id="rubros" class="btn botones mr-2"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        >Rubros</button>
+
+        <button type="button" id="ventas" class="btn botones mr-2" [routerLink]="['/ventas']" routerLinkActive="router-link-active"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        >Ventas</button>
+
+        <button type="button" id="compras" class="btn botones mr-2"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        >Compras</button>
+
+        <button type="button" id="pedidos" class="btn botones mr-2"
+        data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+        >Pedidos</button>
       </div>
     </div>
   </div>

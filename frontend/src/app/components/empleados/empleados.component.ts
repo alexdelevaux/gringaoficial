@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EmpleadosService } from '../../services/empleados.service';
 import { Empleado } from '../../models/empleado';
-import { MessageService } from "primeng/components/common/messageservice";
+import { MessageService } from 'primeng/components/common/messageservice';
 import {ConfirmationService} from 'primeng/api';
 
 
@@ -13,33 +13,20 @@ import {ConfirmationService} from 'primeng/api';
 })
 export class EmpleadosComponent implements OnInit {
 
-
-  empleados: Empleado[];
-
-  ids: number[] = [];
-
-  obtenerIDS() {
-    for (let index = 0; index < this.empleados.length; index++) {
-      const element = this.empleados[index].idEmpleado;
-      this.ids.push(element);
-    }
-    console.log(this.ids);
-  }
-
   nuevoID: number;
 
-  nombreTEST = "TESTING"
+  nombreTEST = 'TESTING';
 
   empleado: Empleado = {
     idEmpleado: this.nuevoID,
     nombre: this.nombreTEST,
-    apellido: "",
-    usuario: "",
-    contrasena: "",
-    rol: "",
-    estado: "",
-    observaciones: ""
-  }
+    apellido: '',
+    usuario: '',
+    contrasena: '',
+    rol: '',
+    estado: '',
+    observaciones: ''
+  };
 
   yearFilter: number;
 
@@ -61,15 +48,30 @@ export class EmpleadosComponent implements OnInit {
 
   displayDialog: boolean;
 
-  constructor( private empleadosService: EmpleadosService, private messageService: MessageService, private confirmationService: ConfirmationService) { }
+  empleados: Empleado[];
+
+  ids: number[] = [];
+
+  obtenerIDS() {
+    for (let index = 0; index < this.empleados.length; index++) {
+      const element = this.empleados[index].idEmpleado;
+      this.ids.push(element);
+    }
+    console.log(this.ids);
+  }
+
+
+
+  constructor( private empleadosService: EmpleadosService,
+    private messageService: MessageService, private confirmationService: ConfirmationService) { }
 
   ngOnInit() {
     this.empleadosService.getEmpleados().then(empleados => {
-      this.empleados = empleados
+      this.empleados = empleados;
       console.log('Valor de this.empleados: ', this.empleados);
       for (let i = 0; i < this.empleados.length; i++) {
         const id = this.empleados[i].idEmpleado;
-        this.ids.push(id)
+        this.ids.push(id);
       }
       console.log('IDS: ', this.ids);
       this.nuevoID = Math.max(...this.ids);
@@ -79,17 +81,17 @@ export class EmpleadosComponent implements OnInit {
 
       this.empleado = {
         idEmpleado: this.nuevoID,
-        nombre: "",
-        apellido: "",
-        usuario: "",
-        contrasena: "",
-        rol: "",
-        estado: "",
-        observaciones: ""
-      }
+        nombre: '',
+        apellido: '',
+        usuario: '',
+        contrasena: '',
+        rol: '',
+        estado: '',
+        observaciones: ''
+      };
 
     } );
-    //console.log(this.obtenerIDS());
+    // console.log(this.obtenerIDS());
 
 
     this.cols = [
@@ -113,7 +115,7 @@ export class EmpleadosComponent implements OnInit {
       {label: 'Todos', value: null},
       { label: 'Activo', value: 'a' },
       { label: 'Inactivo', value: 'i' },
-    ]
+    ];
 
 
   } // Fin del ngOnInit()
@@ -121,9 +123,17 @@ export class EmpleadosComponent implements OnInit {
   abrirDialogo() {
     this.nuevoEmpleado = true;
     this.displayDialog = true;
-    console.log('))))))))))))))NUEVOID((((((((((((((((',this.nuevoID);
+    console.log('))))))))))))))NUEVOID((((((((((((((((', this.nuevoID);
   }
 
+  /**
+   * borrar
+   * @param empleado
+   * Recibe un empleado como parámetro, pide confirmación mediante un diálogo
+   * Si acepto, ejecuta el método deleteEmpleados().
+   * TODO: Una vez que el empleado se borra, deberia borrarse de la tabla. Esto actualmente no ocurre
+   * TODO: Se debería poder pasar el id también. Hacer esto a futuro.
+   */
   borrar(empleado: Empleado) {
     this.confirmationService.confirm({
       message: '¿Está seguro que desea borrar este empleado?',
@@ -134,11 +144,11 @@ export class EmpleadosComponent implements OnInit {
       ,
       accept: () => {
         this.messageService.add({
-            severity: "error",
-            summary: "¡Empleado/a borrado/a!",
+            severity: 'error',
+            summary: '¡Empleado/a borrado/a!',
             life: 3000,
             detail: `Se ha borrado a ${ empleado.nombre} ${empleado.apellido}`,
-            key: "cambioEmpleado" // CLAVE
+            key: 'cambioEmpleado' // CLAVE
           });
 
           this.empleadosService.deleteEmpleado(empleado.idEmpleado);
@@ -152,7 +162,6 @@ export class EmpleadosComponent implements OnInit {
     this.empleado = empleado;
     this.nuevoEmpleado = false;
     this.displayDialog = true;
-
   }
 
   onYearChange(event, dt) {
@@ -165,28 +174,30 @@ export class EmpleadosComponent implements OnInit {
     }, 250);
 }
 
+  /**
+   * Guarda un empleado en la base de datos.
+   * * Controla si es un empleado nuevo o no, mediante la variable nuevoEmpelado
+   * * En caso de serlo, hace un addEmpleado, y sino, un updateEmpleado
+   */
   save() {
     console.log(this.empleado);
-
-
     if (this.nuevoEmpleado) {
       this.empleadosService.addEmpleado(this.empleado);  // Aqui se guarda en la DB
-      this.messageService.add({
-        severity: "info",
-        summary: "¡Nuevo empleado creado!",
+      this.messageService.add({ // Valores del toast
+        severity: 'info',
+        summary: '¡Nuevo empleado creado!',
         life: 3000,
         detail: `Nombre: ${ this.empleado.nombre} ${this.empleado.apellido}`,
-        key: "nuevoEmpleado" // CLAVE
+        key: 'nuevoEmpleado' // CLAVE
     });
-    }
-    else {
-      this.empleadosService.updateEmpleado(this.empleado);
-      this.messageService.add({
-        severity: "success",
-        summary: "¡Empleado actualizado!",
+    } else {
+      this.empleadosService.updateEmpleado(this.empleado); // Aqui se guarda en la DB
+      this.messageService.add({ // Valores del toast
+        severity: 'success',
+        summary: '¡Empleado actualizado!',
         life: 3000,
         detail: `Se actualizó el/la empleado/a ${ this.empleado.nombre} ${this.empleado.apellido}`,
-        key: "cambioEmpleado" // CLAVE
+        key: 'cambioEmpleado' // CLAVE
     });
     }
 
@@ -195,22 +206,23 @@ export class EmpleadosComponent implements OnInit {
 
   this.displayDialog = false;
    let empleados = [...this.empleados];
-        if (this.nuevoEmpleado)
-            empleados.push(this.empleado);
-        else
-            empleados[this.empleados.indexOf(this.empleadoSeleccionado)] = this.empleado;
+        if (this.nuevoEmpleado) {
+          empleados.push(this.empleado);
+        } else {
+          empleados[this.empleados.indexOf(this.empleadoSeleccionado)] = this.empleado;
+        }
 
         this.empleados = empleados;
         this.empleado = {
           idEmpleado: this.nuevoID,
-          nombre: "",
-          apellido: "",
-          usuario: "",
-          contrasena: "",
-          rol: "",
-          estado: "",
-          observaciones: ""
-        }
+          nombre: '',
+          apellido: '',
+          usuario: '',
+          contrasena: '',
+          rol: '',
+          estado: '',
+          observaciones: ''
+        };
 
 
   }

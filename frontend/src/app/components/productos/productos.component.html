@@ -4,7 +4,7 @@
   <button type="button" (click)="abrirDialogo()" class="btn boton-producto mb-1">Nuevo Producto</button>
 </div>
 
-<p-table [value]="productos" selectionMode="single" [(selection)]="productoElegido" datakey="id">
+<p-table [value]="productos" selectionMode="single" [(selection)]="productoElegido" datakey="id" [responsive]="true">
   <ng-template pTemplate="header">
       <tr>
           <th>ID</th>

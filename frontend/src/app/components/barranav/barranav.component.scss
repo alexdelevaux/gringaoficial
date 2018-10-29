@@ -1,0 +1,88 @@
+$color-empleados: #AD1457;
+$color-proveedores: #8E24AA;
+$color-productos: #512DA8;
+$color-rubros: #304FFE;
+$color-ventas: #00ACC1;
+$color-compras: #2E7D32;
+$color-pedidos: #FFAB00;
+
+
+.container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+
+  @media screen and (max-width: 600px) {
+    display: inline;
+  }
+}
+
+.btn {
+  color: white;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .btn {
+    margin-top: 5px;
+  }
+}
+
+
+#empleados {
+  background: $color-empleados;
+
+  &:hover {
+    background: darken($color: $color-empleados, $amount: 10)
+  }
+}
+
+#proveedores {
+  background: $color-proveedores;
+
+  &:hover {
+    background: darken($color: $color-proveedores, $amount: 10)
+  }
+}
+
+#productos {
+  background: $color-productos;
+
+  &:hover {
+    background: darken($color: $color-proveedores, $amount: 10)
+  }
+}
+
+#rubros {
+  background: $color-rubros;
+
+  &:hover {
+    background: darken($color: $color-rubros, $amount: 10)
+  }
+}
+
+#ventas {
+  background: $color-ventas;
+
+  &:hover {
+    background: darken($color: $color-ventas, $amount: 10)
+  }
+}
+
+#compras {
+  background: $color-compras;
+
+  &:hover {
+    background: darken($color: $color-compras, $amount: 10)
+  }
+}
+
+#pedidos {
+  background: $color-pedidos;
+
+  &:hover {
+    background: darken($color: $color-pedidos, $amount: 10)
+  }
+}
