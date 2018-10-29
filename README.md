@@ -1,6 +1,13 @@
 # gringaoficial
 Repositorio oficial de La gringa
 
+## 15/10/18
+- [A] Ya funciona el componente Empleados casi en su totalidad:
+  * Todos los filtros funcionando correctamente (incluyendo el filtro global)
+  * Cuando creamos un nuevo Empleado, ya no hay un "input" para Rol y Estado, sino un dropdown para elegir los valores (igual en los filtros)
+  * Colores para todo el componente ya correctos
+  * **PENDIENTE**: Que los cambios impacten en el acto
+
 ## 14/10/18
 - [F] Se completo en server el require para que se creen todas las tablas
 - [F] Se creo la carpeta docs/errors en backend para poner sobre errores tipicos y como solucionarlos.
