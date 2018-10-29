@@ -1,6 +1,13 @@
 # gringaoficial
 Repositorio oficial de La gringa
 
+## 29/10/18
+- [A] Actualizaciones varias menores:
+- El componente empleados está totalmente comentado para mejorar su entendimiento
+- Se han mudado casi todos los componente a Sass (archivo .scss)
+- Se ha creado el componente HomeComponent, que sera el Home. Las rutas a este componente tambien estan creadas.
+- Actualizada la barra de navegaciones, para incluir ruta al home, y mejoras en los colores (mudados a Sass, efectos de hover).
+
 ## 15/10/18
 - [A] Ya funciona el componente Empleados casi en su totalidad:
   * Todos los filtros funcionando correctamente (incluyendo el filtro global)
