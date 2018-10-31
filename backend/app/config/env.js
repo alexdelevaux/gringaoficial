@@ -6,7 +6,7 @@ const env = {
 //  password: 'password',
 
 // contrasena fer
-  password: 'password',
+  password: 'MySQL123/*-',
   host: 'localhost',
   dialect: 'mysql',
   pool: {

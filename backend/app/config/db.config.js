@@ -5,6 +5,8 @@ const sequelize = new Sequelize(env.database, env.username, env.password, {
   host: env.host,
   dialect: env.dialect,
   operatorsAliases: false,
+  // para poder hacer un call con muchas muchas lineas dentro
+  multipleStatements: true,
 
   pool: {
     max: env.max,
