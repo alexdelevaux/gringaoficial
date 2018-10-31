@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeGringaComponent } from '../components/home-gringa/home-gringa.component';
-import { CustomerComponent } from '../customer/customer.component';
-import { AddCustomerComponent } from '../add-customer/add-customer.component';
-import { CustomerDetailsComponent } from '../customer-details/customer-details.component';
 import { EmpleadosComponent } from '../components/empleados/empleados.component';
 import { ProductosComponent } from '../components/productos/productos.component';
 import { VentasComponent } from '../components/ventas/ventas.component';
+import { LoginComponent } from '../components/login/login.component';
 
 const routes: Routes = [
   {
@@ -17,6 +15,9 @@ const routes: Routes = [
   },
   {
     path: 'ventas', component: VentasComponent
+  },
+  {
+    path: 'login', component: LoginComponent
   },
   {
     path: 'home', component: HomeGringaComponent

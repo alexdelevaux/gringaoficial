@@ -33,8 +33,8 @@ selectionMode="single" [(selection)]="empleadoElegido" datakey="id">
               <input style="width: 100%" *ngSwitchCase="'apellido'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
               <input style="width: 100%" *ngSwitchCase="'usuario'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
               <input style="width: 100%" *ngSwitchCase="'observaciones'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
-              <p-dropdown *ngSwitchCase="'rol'" [options]="roles" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
-              <p-dropdown *ngSwitchCase="'estado'" [options]="estados" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+              <p-dropdown *ngSwitchCase="'rol'" [options]="rolesFiltros" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
+              <p-dropdown *ngSwitchCase="'estado'" [options]="estadosFiltros" [style]="{'width':'100%'}" (onChange)="dt.filter($event.value, col.field, 'equals')"></p-dropdown>
           </th>
       </tr>
   </ng-template>

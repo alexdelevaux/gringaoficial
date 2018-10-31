@@ -31,6 +31,7 @@ import { ProductosComponent } from './components/productos/productos.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { ProveedoresComponent } from './proveedores/proveedores.component';
 import { HomeGringaComponent } from './components/home-gringa/home-gringa.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { HomeGringaComponent } from './components/home-gringa/home-gringa.compon
     ProductosComponent,
     VentasComponent,
     ProveedoresComponent,
-    HomeGringaComponent
+    HomeGringaComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
