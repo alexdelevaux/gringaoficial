@@ -38,7 +38,11 @@ export class EmpleadosComponent implements OnInit {
 
   roles: any[];
 
+  rolesFiltros: any[];
+
   estados: any[];
+
+  estadosFiltros: any[];
 
   empleadoElegido: Empleado;
 
@@ -106,12 +110,22 @@ export class EmpleadosComponent implements OnInit {
     ];
 
     this.roles = [
+      { label: 'Vendedor', value: 'v' },
+      { label: 'Admin', value: 'a' },
+    ];
+
+    this.rolesFiltros = [
       { label: 'Todos', value: null},
       { label: 'Admin', value: 'a' },
       { label: 'Vendedor', value: 'v' },
     ];
 
     this.estados = [
+      { label: 'Activo', value: 'a' },
+      { label: 'Inactivo', value: 'i' },
+    ];
+
+    this.estadosFiltros = [
       {label: 'Todos', value: null},
       { label: 'Activo', value: 'a' },
       { label: 'Inactivo', value: 'i' },
