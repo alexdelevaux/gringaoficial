@@ -1,6 +1,11 @@
 # gringaoficial
 Repositorio oficial de La gringa
 
+## 31/10/18
+- [F] Funciona la llamada al SP. Ojo: Queda pendiente por ver las dos versiones de devolucion de datos.
+- creacion de funcion para probar queries. Hasta el momento -> Vacia.
+
+
 ## 29/10/18
 - [A] Actualizaciones varias menores:
 - El componente empleados está totalmente comentado para mejorar su entendimiento
