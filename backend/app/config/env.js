@@ -1,20 +1,20 @@
 const env = {
-  database: 'gringa',
-  //database: 'proyecto',
-  username: 'root',
-// contrasena ale
-//  password: 'password',
+    database: 'gringa',
+    //database: 'proyecto',
+    username: 'root',
+    // contrasena ale
+    //    password: 'password',
 
-// contrasena fer
-  password: 'MySQL123/*-',
-  host: 'localhost',
-  dialect: 'mysql',
-  pool: {
-	  max: 5,
-	  min: 0,
-	  acquire: 30000,
-	  idle: 10000
-  }
+    // contrasena fer
+    password: 'MySQL123/*-',
+    host: 'localhost',
+    dialect: 'mysql',
+    pool: {
+        max: 5,
+        min: 0,
+        acquire: 30000,
+        idle: 10000
+    }
 };
 
 

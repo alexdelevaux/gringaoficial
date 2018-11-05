@@ -1,5 +1,6 @@
 var express = require('express');
 var app = express();
+let colors = require('colors/safe');
 var bodyParser = require('body-parser');
 app.use(bodyParser.json())
 
@@ -24,13 +25,14 @@ const db = require('./app/config/db.config.js');
 
 db.sequelize.sync().then(() => {
     //  console.log('Drop and Resync with { force: true }');
-    console.log('Sync sin force');
+    console.log(colors.cyan('Sync sin force'));
     initial();
+
 
     // pruebaQuery();
 
     consultas();
-});
+}).catch(e => (console.log(colors.yellow('Error al hacer el sync'), e)));
 
 
 
@@ -57,7 +59,7 @@ var server = app.listen(8080, function() {
     let host = server.address().address
     let port = server.address().port
 
-    console.log("App listening at http://%s:%s", host, port);
+    console.log(colors.green("App listening at http://%s:%s"), host, port);
 })
 
 // Funcion de prueba. Genera datos para poblar db
@@ -207,6 +209,8 @@ function initial() {
 // Prueba como llamar a un sp
 function pruebaQuery() {
 
+    console.log(colors.cyan('===================    pruebaQuery     ================================'));
+
     // db.sequelize.query(
     //     'CALL pruebaSP(:valor, :valor2 )', {
     //         replacements: {
@@ -218,7 +222,7 @@ function pruebaQuery() {
     // Tipo Promesa
     db.sequelize
         .query('CALL pruebaSP(:valor, :valor2 )', { replacements: { valor: "me@jsbot.io", valor2: 'pwd' } })
-        .then(v => console.log(v));
+        .then(v => console.log(colors.cyan(v)));
 
     // Tipo spread
     // Me devuelve solo 1
@@ -229,5 +233,10 @@ function pruebaQuery() {
 
 // distintas pruebas de queries
 function consultas() {
+
+    console.log(colors.magenta('######################    Consultas   ##############################'));
+
+
+
 
 }
