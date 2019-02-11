@@ -8,14 +8,11 @@
 
 USE `proyecto` ;
 
--- =========	ELIMINAR PRODUCTO - SP	========================================================================
-
-
 DROP PROCEDURE IF EXISTS asp_eliminarProducto;
 
 DELIMITER //
 
-CREATE PROCEDURE `asp_eliminarProducto` (p_idProducto int)
+CREATE PROCEDURE `asp_eliminarProducto` ( p_idProducto int )
 BEGIN
     
     IF( (SELECT idProducto FROM productos WHERE idProducto = p_idProducto ) IS NULL) THEN

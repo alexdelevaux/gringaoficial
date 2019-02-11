@@ -40,17 +40,17 @@ DECLARE	v_observaciones VARCHAR(50);
 	ELSE 
 		SET v_idVenta = p_idVenta;
     END IF;
-    
-    -- controlar. Me da error si mando idEmpelado null
+
+
     IF(p_idEmpleado IS NULL) THEN
-		SET v_idEmpleado = (SELECT idEmpleado FROM ventas WHERE idempleado = p_idEmpleado);
+			SET v_idEmpleado = (SELECT idEmpleado FROM ventas WHERE idVenta = p_idVenta);
     ELSE
-		IF( (SELECT idEmpleado FROM empleados WHERE idempleado = p_idEmpleado ) IS NULL) THEN
-			signal sqlstate '45000' set message_text = 'No exitste un empleado con ese id';
-		ELSE 
-			SET v_idEmpleado = p_idEmpleado;
+			IF( (SELECT idEmpleado FROM empleados WHERE idempleado = p_idEmpleado ) IS NULL) THEN
+				signal sqlstate '45000' set message_text = 'No exitste un empleado con ese id';
+			ELSE 
+				SET v_idEmpleado = p_idEmpleado;
+			END IF;
 		END IF;
-    END IF;
    
    
 	IF(p_fecha IS NOT NULL) THEN
@@ -99,7 +99,3 @@ DECLARE	v_observaciones VARCHAR(50);
 END //
 
 DELIMITER ;
-
--- #####################################################################################
-
-

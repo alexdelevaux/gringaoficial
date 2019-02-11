@@ -2,7 +2,7 @@
 -- NUEVA VENTA - SP 
 -- ==================
 
--- 08/02/2019
+-- 11/02/2019
 -- Fernanda Valle
 -- Alejandro Cisneros Delevaux
 -- La Gringa
@@ -31,8 +31,11 @@ DECLARE p_idVenta INT;
 SET p_idVenta  = (SELECT MAX(idVenta) FROM ventas) + 1;
     
 	IF(p_idEmpleado IS NULL) THEN 
-        signal sqlstate '45000' set message_text = 'Nombre de producto null';
-    END IF;
+        signal sqlstate '45000' set message_text = 'p_idEmpleado null';
+	ELSE
+        IF((SELECT idEmpleado FROM empleados WHERE idEmpleado = p_idEmpleado) IS NULL) THEN
+        signal sqlstate '45000' set message_text = 'Empleado inexistente';
+	END IF;
     
     
 	IF(p_fecha IS NULL) THEN 
